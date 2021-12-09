@@ -5,4 +5,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
+    path('post/<int:pk>/', views.post_detail, name='post_detail'), #caminho, view, e nome da url
+
 ] 
