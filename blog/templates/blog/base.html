@@ -9,12 +9,13 @@
     <body>
         <div class="page-header">
             <h1><a href="/">Django Girls Blog</a></h1>
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        </div>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
+        </div> <!--% url + nome da view: fazendo o link para a view-->
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
-                <hr>
                 {% block content %}
                 {% endblock %}
                 </div>

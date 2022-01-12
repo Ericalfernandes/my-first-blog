@@ -1,6 +1,6 @@
 from django.utils import timezone #precisei importar para usar o timezone (da query)
 from .models import Post #importando a model Post de models.py
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect #rdirecionar para outra view, página
 from .forms import PostForm
 
 # Create your views here.
@@ -15,13 +15,27 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST": #condição para salvar os dados do form quando houver dados
-        form = PostForm(request.POST)
+        form = PostForm(request.POST) #request.POST estamos enviando dados, vem do método POST
         if form.is_valid(): #checar se o formulário está correto (todos os campos requeridos estão prontos e valores incorretos não serão salvos)
-            post = form.save(commit=False) #significa que não queremos salvar o modelo de Post ainda
+            post = form.save(commit=False) #significa que não queremos salvar o model de Post ainda
             post.author = request.user
             post.published_date = timezone.now()
             post.save() #vai preservar as alterações (adicionando o autor) e é criado um novo post no blog
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm() #senão renderiza o proprio form vazio
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+        return redirect('post_list')
+    else:
+        form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
