@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from decouple import config #add lib python decouple para trabalhar com variáveis de ambiente
 import psycopg2
+
 #import dj_database_url
 #from pathlib import Path
 
@@ -29,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'myfirstblog-ericalfernandes.herokuapp.com/'] #adicionei o endereço p rodar local e o domínio do servidor para quando fizer deploy
+ALLOWED_HOSTS = ['127.0.0.1'] #adicionei o endereço p rodar local e o domínio do servidor para quando fizer deploy
 
 # Application definition
 
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,7 +79,7 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#LOCAL
+# sqlite
 
 '''
 DATABASES = {
@@ -89,7 +91,7 @@ DATABASES = {
 '''
 
 
-#PRODUÇÃO
+#postgres
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -139,3 +141,4 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') #adicionei o caminho para os arquivos estáticos
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

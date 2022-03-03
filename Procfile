@@ -1,2 +1,2 @@
-release: python manage.py migrate
-web: gunicorn tutorial_djangogirls.wsgi --log-file -
+release: python3 manage.py migrate
+web: gunicorn my_blog.wsgi --log-file -
