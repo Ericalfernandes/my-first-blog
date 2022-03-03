@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1'] #adicionei o endereço p rodar local e o domínio do servidor para quando fizer deploy
+ALLOWED_HOSTS = [] #adicionei o endereço p rodar local e o domínio do servidor para quando fizer deploy
 
 # Application definition
 
