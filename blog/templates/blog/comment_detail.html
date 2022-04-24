@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="comment">
+        {% for item in comment %}
+            <p>Comentário: {{item.text |linebreaksbr }}</p>
+            <p>Autor(a): {{ item.author|linebreaksbr }}</p>
+            <p>Post: {{item.post}}</p>
+            <div class="date">
+                <p>Data de criação: {{ item.created_date|linebreaksbr }}</p>
+                <br><hr>  
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
