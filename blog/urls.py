@@ -10,5 +10,5 @@ urlpatterns = [
     path('post/new/', views.post_new, name='post_new'), 
     path('post/edit/<int:pk>/', views.post_edit, name='post_edit'),
     path('comment/', views.comment, name='comments'), #tentativa de exibir um html só com comentários de um post
-    path('comment/new/', views.comment_new, name='comment_new'),
+    path('comment/new/', views.post_detail, name='comment_new'),
 ]   
