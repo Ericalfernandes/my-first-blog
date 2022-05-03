@@ -18,22 +18,22 @@ def post_list(request):
 def post_detail(request, pk):
     posts = get_object_or_404(Post, pk=pk) #nova query
     comment = Comment.objects.filter(post_id=pk)
-    return render(request, 'blog/post_detail.html', {'post':posts, 'comment':comment}) #mudança p renderizar o html de detail dos posts
-
-def comment_new(request, pk):
-    post = get_object_or_404(Post, pk=pk)
     if request.method == "POST": #condição para salvar os dados do form quando houver dados
         form = CommentForm(request.POST) #request.POST estamos enviando dados, vem do método POST
         if form.is_valid(): #checar se o formulário está correto (todos os campos requeridos estão prontos e valores incorretos não serão salvos)
             comment = form.save(commit=False) #significa que não queremos salvar o model de Post ainda
             comment.author = request.user
             comment.created_date = timezone.now()
-            comment.post = post
+            comment.post = posts
             comment.save() #vai preservar as alterações (adicionando o autor) e é criado um novo post no blog
-        return redirect('post_detail', pk=post.pk)
+        return redirect('post_detail', pk=posts.pk)
     else:
         form = CommentForm() #senão renderiza o proprio form vazio
-    return render(request, 'blog/comment_new.html', {'form': form})
+    return render(request, 'blog/post_detail.html', {'post':posts, 'comment':comment, 'form': form}) #mudança p renderizar o html de detail dos posts
+
+def comment_new(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    
 
 def post_new(request):
     if request.method == "POST": #condição para salvar os dados do form quando houver dados
@@ -46,7 +46,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm() #senão renderiza o proprio form vazio
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'blog/post_new.html', {'form': form})
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
