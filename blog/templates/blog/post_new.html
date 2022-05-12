@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h2>New post</h2>
+    <br>
+    <form method="POST" class="post-form">{% csrf_token %} <!-- csrf_token: segurança do form -->
+        {{ form.as_p }} <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form> <!-- tag html form : <form></form> -->
+{% endblock %}
