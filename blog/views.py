@@ -4,6 +4,10 @@ from django.shortcuts import render, get_object_or_404, redirect #rdirecionar pa
 from .forms import PostForm, CommentForm
 
 # Create your views here.
+#Home
+def home(request):
+    return render(request, "blog/index.html")
+
 #Comments functions
 def comment(request): #criei temporariamente, para conseguir ver todos os objetos de com
     comment = Comment.objects.all().order_by('created_date')
