@@ -23,7 +23,6 @@ class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
-        
     class Meta: 
         ordering = ['created_date'] #ordenação
 
