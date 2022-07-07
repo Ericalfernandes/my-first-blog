@@ -1,18 +1,22 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/index.html' %}
 {% load static %}
 
 
 {% block content %}
-    <div class="comment">
-        {% for item in comment %}
-            <p>Comentário: {{item.text |linebreaksbr }}</p>
-            <p>Autor(a): {{ item.author|linebreaksbr }}</p>
-            <p>Post: {{item.post}}</p>
-            <div class="date">
-                <p>Data de criação: {{ item.created_date|linebreaksbr }}</p>
-                <br><hr>  
+<body>
+    <main>
+        <section class="conteudo-list">
+            {% for item in comment %}
+            <div class="item-comment-list">        
+                <p class="item-comment-text">Comentário: {{item.text |linebreaksbr }}</p>
+                <p class="item-comment-author">Autor(a): {{ item.author|linebreaksbr }}</p>
+                <p class="item-comment-postk">Post: {{item.post}}</p>
+                <p class="item-comment-createddate">Data de criação: {{ item.created_date|linebreaksbr }}</p>
+                <br><hr>
             </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>    
 {% endblock %}
 
