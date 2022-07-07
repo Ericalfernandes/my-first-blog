@@ -7,7 +7,7 @@ class PostForm(forms.ModelForm): #'PostForm' é o nome do nosso formulário para
 
     class Meta: 
         model = Post #informando para o django a model que será utilizada para criar o formulário
-        fields = ('title', 'text',) #especificação dos campos deste formulário
+        fields = ('title', 'text', ) #especificação dos campos deste formulário
 
 class CommentForm(forms.ModelForm):
 
