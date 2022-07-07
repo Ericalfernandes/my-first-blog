@@ -1,41 +1,48 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/index.html' %}
 {% load static %}
 
 
 {% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        {% if user.is_authenticated %}
-        <h2>{{ post.title }} <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-            <span class="glyphicon glyphicon-pencil"></span></a> </h2>      
-        {% endif %}
-        <p>{{ post.text|linebreaksbr }}</p>
-        <p>Author: {{post.author | linebreaksbr }}</p>
-    </div>
-        
-    <div class="comment">
-        <br>
-        <p><strong>Comentários: 
-        {% if user.is_authenticated %}
-            <span class="glyphicon glyphicon-plus"></span>
-        <form method="POST" class="comment-form">{% csrf_token %} <!-- csrf_token: segurança do form -->
-            {{ form.as_p }} <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
-            <button type="submit" class="save btn btn-default">Save</button>
-        </form> <!-- tag html form : <form></form> -->
-        {% endif %}</strong></p>
-        {% for item in comment %}
-            <p>Comentário: {{item.text |linebreaksbr }}</p>
-            <p>Autor(a): {{ item.author|linebreaksbr }}</p>
-            <p>Post: {{item.post}}</p>
-            <div class="date">
-                <p>Data de criação: {{ item.created_date|linebreaksbr }}</p>
-                <br> 
-            </div>
-        {% endfor %}
-    </div>
-        
+<body>
+    <main class="conteudo-post-list">
+        <div class="conteudo-posts">
+            <section class="post-list">
+                <div class="item-post-list">
+                    <p class="autor-item-post-list">Autor: {{post.author | linebreaksbr }}</p>
+                    <h2 class="titulo-item-post-list">{{ post.title }}</h3>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                    <p class="datapublicação-item-post-list">Data de publicação: {{ post.published_date }}</p>
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><button type="submit" class="botao-post-edição">Editar</button></a>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+        <section class="comments">
+            <p class="conteudo-comment"><strong>Comentários:
+            {% if user.is_authenticated %}
+                <div class="comment-form">
+                    <form method="POST" class="comment-form-text-area">{% csrf_token %} <!-- csrf_token: segurança do form -->
+                    {{ form.as_p }} <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
+                    <button type="submit" class="form-button-save">Save</button>
+                    </form> <!-- tag html form : <form></form> -->                    
+                </div>
+            {% endif %}</strong></p>
+            {% for item in comment %}
+                <div class="item-comment-post">                
+                    <p class="texto-comment-post">Comentário: {{item.text |linebreaksbr }}</p>
+                    <p class="autor-comment-post">Autor(a): {{ item.author|linebreaksbr }}</p>
+                    <p class="postpk-comment-post">Post: {{item.post}}</p>
+                    <p class="datacriação-comment-post">Data de criação: {{ item.created_date|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
 {% endblock %}
+
+    
+        
+    
+        
+
