@@ -16,7 +16,7 @@ def comment(request): #criei temporariamente, para conseguir ver todos os objeto
 # Post functions
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date') #adicionei a query e atribui o valor dela a uma variavel
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date') #adicionei a query e atribui o valor dela a uma variavel
     return render(request, 'blog/post_list.html', {'posts':posts}) #adicionei parametros para que eu possa mandar esses valores da query p template
 
 def post_detail(request, pk):
@@ -61,7 +61,7 @@ def post_edit(request, pk):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-        return redirect('post_list')
+        return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
