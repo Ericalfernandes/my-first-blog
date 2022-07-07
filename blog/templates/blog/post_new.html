@@ -1,12 +1,19 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/index.html' %}
 {% load static %}
 
-
 {% block content %}
-    <h2>New post</h2>
-    <br>
-    <form method="POST" class="post-form">{% csrf_token %} <!-- csrf_token: segurança do form -->
-        {{ form.as_p }} <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form> <!-- tag html form : <form></form> -->
+
+<body>
+    <main>
+        <div class="new-post">
+            <h2 class="title-new-post-page">New post</h2>
+            <form method="POST" class="post-form">{% csrf_token %}
+                <!-- csrf_token: segurança do form -->
+                {{ form.as_p }}
+                <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
+                <button type="submit" class="form-button-save">Save</button>
+            </form> <!-- tag html form : <form></form> -->
+        </div>
+    </main>
+</body>
 {% endblock %}
