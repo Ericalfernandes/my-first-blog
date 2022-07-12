@@ -8,3 +8,4 @@ db.sqlite
 .DS_Store
 .env
 datadump.json
+.vscode
