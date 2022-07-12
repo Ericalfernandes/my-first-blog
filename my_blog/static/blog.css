@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-size: 100%;
+    background: linear-gradient(white, rgb(156, 235, 215));
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.cabecalho-imagem {
+    height: 70px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.cabecalho-menu-item {
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.conteudo {
+    border-top: 0.5px dotted #000000;
+    margin-bottom: 48px;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.conteudo-principal-escrito {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+
+.conteudo-principal-imagem {
+    height: 200px;
+}
+
+.conteudo-principal-escrito-botao {
+    background-color: rgb(223, 156, 253);
+    width: 120px;
+    height: 40px;
+    left: 315px;
+    top: 382px;
+    box-shadow: 4px 5px 4px rgba(94, 93, 93, 0.25);
+    border-radius: 20px;
+}
+
+.conteudo-principal-escrito-botao:hover {
+    background-color: rgb(74, 158, 130);
+}
+
+.conteudo-principal-imagem {
+    height: 180px;
+}
+
+.conteudo-secundario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 60px;
+}
+.conteudo-secundario-titulo {
+    border-top: 0.5px dotted #000000;
+    margin-bottom: 16px;
+    padding-top: 40px;
+    font-family: 'Righteous', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.conteudo-secundario-paragrafo {
+    font-family: 'Sarala';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+}
+
+
+.rodapé{
+    display: flex;
+    border-top: 0.5px dotted #000000;
+    padding: 32px;
+}
+
+.rodapé-imagem {
+    height: 120px;
+    display: block;
+    margin: 0px auto;
+    align-items: center;
+}
+
+.conteudo-post-list {
+    margin: 10px;
+}
+
+.titulo-post-list{
+    margin-bottom: 10px;
+    margin-left: 30px;
+    align-items: center;
+}
+
+.conteudo-posts{
+    display: flex;
+}
+
+.conteudo-list {
+    flex-direction: column;  
+}
+
+.item-post-list {
+    margin: 20px;
+    padding: 10px;
+    justify-content: space-between;
+    border-bottom: solid darkgrey 1px;
+    font-family: 'Sarala';
+}
+
+.autor-item-post-list {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.titulo-item-post-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 26px;
+}
+
+.texto-item-post-list {
+    margin-top: 20px;
+    margin-bottom: 30   px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.datapublicação-item-post-list {
+    padding: 20px 0px 20px 0px;
+}
+
+.botao-post-edição {
+    background-color: rgb(170, 167, 167);
+    width: 70px;
+    height: 30px;
+    box-shadow: 4px 5px 4px rgba(76, 76, 76, 0.25);
+    border-radius: 20px;
+}
+
+.comments {
+    margin: 20px;
+    align-items: center;
+}
+
+.conteudo-comment {
+    padding: 0px 0px 20px 0px;
+}
+
+.item-comment-post {
+    padding: 20px 0px 20px 0px;
+    border-bottom: solid darkgrey 1px;
+}
+
+.form-button-save {
+    margin: 10px;
+    background-color: rgb(170, 167, 167);
+    width: 70px;
+    height: 30px;
+    box-shadow: 4px 5px 4px rgba(76, 76, 76, 0.25);
+    border-radius: 20px;
+}
+
+.new-post {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-new-post-page {
+    padding-bottom: 20px;
+}
+
+.post-edit-title {
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.post-edit-form {
+    margin: 30px;
+}
+
+.item-comment-list {
+    margin: 30px;
+}
+
+.conteudo-extra {
+    width: 2000px;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;     
+}
+
+
+
