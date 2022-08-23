@@ -10,7 +10,8 @@
 
 body {
     font-size: 100%;
-    background: linear-gradient(white, rgb(156, 235, 215));
+    height: 100%;
+    background: rgb(156, 222, 205);
 }
 
 .cabecalho {
@@ -104,11 +105,11 @@ body {
     line-height: 29px;
 }
 
-
-.rodapé{
+.rodapé {
     display: flex;
     border-top: 0.5px dotted #000000;
-    padding: 32px;
+    margin-top: 100px;
+    padding: 20px;
 }
 
 .rodapé-imagem {
@@ -119,6 +120,9 @@ body {
 }
 
 .conteudo-post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
 }
 
@@ -130,6 +134,8 @@ body {
 
 .conteudo-posts{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .conteudo-list {
@@ -179,18 +185,40 @@ body {
     border-radius: 20px;
 }
 
+.button-comment-create {
+    background-color: rgb(170, 167, 167);
+    width: 30px;
+    height: 30px;
+    box-shadow: 4px 5px 4px rgba(76, 76, 76, 0.25);
+    border-radius: 20px;
+}
+
 .comments {
     margin: 20px;
+    line-height: 170%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .conteudo-comment {
-    padding: 0px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.comment-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .item-comment-post {
     padding: 20px 0px 20px 0px;
     border-bottom: solid darkgrey 1px;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .form-button-save {
@@ -203,19 +231,17 @@ body {
 }
 
 .new-post {
-    margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.title-new-post-page {
-    padding-bottom: 20px;
+    height: 600px;
 }
 
 .post-edit-title {
     margin-bottom: 10px;
     margin-left: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .post-edit-form {
@@ -234,4 +260,49 @@ body {
 }
 
 
+.container {
+    max-width: 1941.93px;
+    max-height: 768px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    float: center;
+}
 
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.area-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 75%;
+    height: 400px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+label {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.inputtitulopost {
+    width: 75%;
+}
+
+.textopost {
+    width: 75%;
+    height: 75%;
+}
