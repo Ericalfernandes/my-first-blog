@@ -1,13 +1,22 @@
 {% extends 'blog/index.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
 <body>
     <main>
         <h2 class="post-edit-title">Update post</h2>
         <form method="POST" class="post-edit-form">{% csrf_token %} <!-- csrf_token: segurança do form -->
-        {{ form.as_p }} <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
-        <button type="submit" class="form-button-save">Save</button>
+            <div class="area-form">
+                <label for="labeltitulopost">Título do post</label>
+                {% render_field form.title %}
+                <br>
+                <label for="textopost">Texto do post</label>
+                {% render_field form.text %}<br><br>
+        
+                <div class="button-save">
+                  <button type="submit" class="form-button-save">Salvar</button>
+            </div>
         </form> <!-- tag html form : <form></form> -->
     </main>
 </body>
