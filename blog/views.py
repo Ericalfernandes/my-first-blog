@@ -36,7 +36,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post':posts, 'comment':comment, 'form': form}) #mudança p renderizar o html de detail dos posts
 
 def comment_new(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+    post = get_object_or_404(Post, pk=pk).order_by('-created_at')
     
 
 def post_new(request):

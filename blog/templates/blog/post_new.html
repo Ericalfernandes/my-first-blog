@@ -3,25 +3,22 @@
 {% load widget_tweaks %}
 
 {% block content %}
-
-<body>
-    <main>
-        <div class="new-post">
-            <h2 class="title-new-post-page">New post</h2>
-            <form method="POST" class="post-form">{% csrf_token %} <!-- csrf_token: segurança do form -->
-                <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
-                <div class="area-form">
-                    <label for="labeltitulopost">Título do post</label>
-                    {% render_field form.title %}
-                    <br>
-                    <label for="textopost">Texto do post</label>
-                    {% render_field form.text %}<br><br>
-            
-                    <div class="button-save">
-                      <button type="submit" class="form-button-save">Salvar</button>
-                </div>
-            </form> <!-- tag html form : <form></form> -->
-        </div>
-    </main>
-</body>
+<main>
+    <div class="new-post">
+        <h2 class="title-new-post-page">New post</h2>
+        <form method="POST" class="post-form">{% csrf_token %} <!-- csrf_token: segurança do form -->
+            <!--chamar o formulário para mostrar no template, tag do django (Form is rendered as paragraphs in the template)-->
+            <div class="area-form">
+                <label for="labeltitulopost">Título do post</label>
+                {% render_field form.title %}
+                <br>
+                <label for="textopost">Texto do post</label>
+                {% render_field form.text %}<br><br>
+        
+                <div class="button-save">
+                  <button type="submit" class="btn btn-default">Salvar</button>
+            </div>
+        </form> <!-- tag html form : <form></form> -->
+    </div>
+</main>
 {% endblock %}

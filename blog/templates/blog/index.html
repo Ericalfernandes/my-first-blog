@@ -7,6 +7,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Diário de aprendizado de programação">
+    <!-- Última versão CSS compilada e minificada -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Tema opcional -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Última versão JavaScript compilada e minificada -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog.css' %}">
     <title>Post blog</title>
 
@@ -14,8 +25,10 @@
 
 <body>
     <header class="cabecalho">
-        <a href="{% url 'index' %}"><img class="cabecalho-imagem" src="{% static 'blog/images/blog-domain-logo.png' %}" 
-        alt="logo-blog"> </a>               
+        <a href="{% url 'index' %}">
+            <img class="cabecalho-imagem" src="{% static 'blog/images/blog-domain-logo.png' %}" 
+        alt="logo-blog"> 
+        </a>               
         <nav class="cabecalho-menu">
             <a class="cabecalho-menu-item" href="{% url 'post_list' %}">Posts</a>
             <a class="cabecalho-menu-item" href="{% url 'post_new' %}">New post</a>
@@ -27,27 +40,32 @@
     <main class="conteudo">
     
         <section class="conteudo-principal">
-            <div class="conteudo-principal-escrito" >
-                <h1 class="conteudo-principal-escrito-titulo">Erica's post blog</h1>
-                <h2 class="conteudo-principal-escrito-subtitulo">Portfólio de aprendizado com Django</h2>
-                <a href="https://www.linkedin.com/in/erica-fernandes-385510103/"><button class="conteudo-principal-escrito-botao">Me conheça</button></a>
-            </div>
             <img 
             class="conteudo-principal-imagem"
             src="{% static 'blog/images/1200px-Django_logo.svg.png' %}" 
             alt="logo-django">
+            <div class="conteudo-principal-escrito" >
+                <h1 class="conteudo-principal-escrito-titulo">Erica's post blog</h1>
+                <h2 class="conteudo-principal-escrito-subtitulo">Portfólio de aprendizado com Django</h2>
+                <div id="botão-index">
+                    <a class="btn btn-primary" href="https://www.linkedin.com/in/erica-fernandes-385510103/0" target="_blank">Me conheça</a>
+                </div>               
+            </div>            
         </section>
         <section class="conteudo-secundario">
-            <h3 class="conteudo-secundario-titulo">Registre seus posts de aprendizado</h3>
-            <p class="conteudo-secundario-paragrafo">Registre <strong>documentações, conceitos e ferramentas exploradas </strong>a cada dia de estudo.</p>
-            <p class="conteudo-secundario-paragrafo">Detalhe <strong>dificuldades, descobertas e discussões</strong>.</p>
-            <p class="conteudo-secundario-paragrafo">E ainda, defina novos objetivos, seus <strong>próximos passos </strong> sempre!</p>
+            <h3 class="conteudo-secundario-titulo">Registros de aprendizado</h3>
+            <p class="conteudo-secundario-paragrafo">Registros de 
+                <strong>documentações, conceitos e ferramentas exploradas </strong>a cada dia de estudo.</p>
+            <p class="conteudo-secundario-paragrafo">Detalhes de <strong>dificuldades, descobertas e discussões</strong>.</p>
+            <p class="conteudo-secundario-paragrafo">E ainda, definição de novos objetivos e <strong>próximos passos </strong> sempre!</p>
         </section>
     </main>
     {% endblock %}
     <footer class="rodapé">
         <img class="rodapé-imagem" src="{% static 'blog/images/blog-domain-logo.png' %}" alt="logo-blog">
     </footer>
+
+    {% block script %} {% endblock script %}
 
 </body>
 </html>

@@ -1,32 +1,27 @@
 {% extends 'blog/index.html' %}
 {% load static %}
 {% block content %}
-
-<body>
-    <main class="conteudo-post-list">
-        <h2 class="titulo-post-list">POSTS PUBLICADOS</h2>
-        <div class="conteudo-posts">
-        <section class="conteudo-list">
-            {% for post in posts %}             
-                <div class="item-post-list">
-                    <p class="autor-item-post-list">Autor: {{post.author|linebreaksbr }}</p>
-                    <h2 class="titulo-item-post-list">
-                        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-                    <p class="texto-item-post-list">{{ post.text|linebreaksbr }}</p>
-                    <p class="datapublicação-item-post-list">Data de publicação: {{ post.published_date }}</p>
-                </div>
-            {% endfor %}
-        </section> 
-        <!--       
-        <aside class="conteudo-extra">
-            <p>Espaço aside</p>
-        </aside>
-        -->
-        </div>
-    </main>
-</body>
-</html>
-
+<main class="conteudo-post-list">
+    <h2 class="titulo-post-list">POSTS PUBLICADOS</h2>
+    <div class="conteudo-posts">
+    <section class="conteudo-list">
+        {% for post in posts %}             
+            <div class="item-post-list">
+                <p class="autor-item-post-list">Autor: {{post.author|linebreaksbr }}</p>
+                <h2 class="titulo-item-post-list">
+                    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <p class="texto-item-post-list">{{ post.text|linebreaksbr }}</p>
+                <p class="datapublicação-item-post-list">Data de publicação: {{ post.published_date }}</p>
+            </div>
+        {% endfor %}
+    </section> 
+    <!--       
+    <aside class="conteudo-extra">
+        <p>Espaço aside</p>
+    </aside>
+    -->
+    </div>
+</main>
 {% endblock %}
 
 
